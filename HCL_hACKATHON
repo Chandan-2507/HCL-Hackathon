@@ -1,42 +1,17 @@
-# Use official Node.js image as base
+# PATIENT-SERVICE
 FROM node:18-alpine
-
-# Set working directory in the container
 WORKDIR /app
-
-# Copy package.json and package-lock.json
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install --only=production
-
-# Copy the rest of the application files
-COPY . .
-
-# Expose the port the service runs on
 EXPOSE 3000
-
-# Start the application
 CMD ["node", "patient-service.js"]
 
 
-# Use official Node.js image as base
+# Appointment-SERVICE
 FROM node:18-alpine
-
-# Set working directory in the container
 WORKDIR /app
-
-# Copy package.json and package-lock.json
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install --only=production
-
-# Copy the rest of the application files
-COPY . .
-
-# Expose the port the service runs on
+COPY 
 EXPOSE 3001
-
-# Start the application
 CMD ["node", "appointment-service.js"]
